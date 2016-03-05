@@ -1,1 +1,94 @@
-/* Empty. Add your own CSS if you like */
+/* College Lift 
+** Authors:
+Florida International University
+*/
+
+body, html {
+	width: 100%;
+	height: 100%;
+}
+.wrapperImg{
+width:100%;
+height:100%;
+background: url('../Panther1.jpg'); 
+background-repeat: no-repeat;
+background-position: top;
+background-attachment: fixed;
+background-size: contain;
+top: 0% !important;
+}
+
+#frontBottom{
+	padding-top: 30%;
+}
+
+#DriverMenu{ 
+	padding-top: 15%;
+}
+
+.container h1 {
+	text-align: left;
+	font-size: 20px;
+}
+
+.card-container.card {
+    max-width: 350px;
+    padding-left:40px;
+    padding-right: 40px;
+}
+
+.card.card-container input{
+	padding: 15px;
+}
+
+.container{
+	text-align: center;
+}
+
+.forgot-password{
+	text-align: center;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+#map {width: 100%; height: 70vh; }
+
+#GetDown{
+	padding-top: 15%;
+}
+
+.list {
+	padding-top: 10%;
+}
+.pricing-tables {
+  padding: 20px;
+}
+.pricing-tables h1 {
+  font-size: 48px;
+}
+.pricing-tables .plan.first {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px !important;
+}
+.pricing-tables .plan.last {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.pricing-tables .plan.recommended {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pricing-tables .plan.recommended .head {
+  /*margin-bottom: 20px;*/
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.pricing-tables.attached .col-sm-4, .pricing-tables.attached .col-md-4, .pricing-tables.attached .col-sm-3, .pricing-tables.attached .col-md-3 {
+  padding-left: 0;

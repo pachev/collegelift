@@ -8,49 +8,25 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <script src="js/main.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
+    </head>
   <body ng-app="starter">
-
-    <div class="bar bar-header bar-stable">
-      <h1 class="title">College Lift</h1>
-    </div>
-    <div class="wrapperImg">
-      <div class="container" id="frontBottom">
-              <div class="list">
-    <div class="container" id="frontBottom">
+  	<div class="container">
+  		<img scr="collegelift.png" width='250px'>
+		<div class="container" id="frontBottom">
         <div class="card card-container">
-           <img src="logo.png" class"img-responsive"/ width='250px' >
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="email" id="inputEmail" class="form-control" name="reauth-email" placeholder="Email address" required autofocus>
                 <input type="password" id="inputPassword" class="form-control" name="mypswrd" placeholder="Password" required>
+                <input type="Username" id="inputName" class="form-control" name="UserName" placeholder="User Name" required>
                 <input type="button" value="Sign In" id="submit" onclick="validate()"/>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
-        </div><!-- /card-container -->
     </div><!-- /container -->
-
-        </div>
-      </div>
-    </div>
-
-
   </body>
 </html>
