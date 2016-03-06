@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title></title>
 
+<<<<<<< HEAD
         <link href="lib/ionic/css/ionic.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <script src="controllers.js"></script>
+=======
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title></title>
+>>>>>>> origin/master
+
+	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="controllers.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+	<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
 
 
 
-        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+	<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
         <link href="css/ionic.app.css" rel="stylesheet">
         -->
 
+<<<<<<< HEAD
         <!-- ionic/angularjs js -->
         <script src="lib/ionic/js/ionic.bundle.js"></script>
 
@@ -218,3 +230,231 @@
                                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                                     </body>
                                     </html>
+=======
+	<!-- ionic/angularjs js -->
+	<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+	<!-- cordova script (this will be a 404 during development) -->
+	<script src="cordova.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- your app's js -->
+	<script src="js/app.js"></script>
+</head>
+
+<body ng-app="starter">
+
+
+	<div class="bar bar-header">
+		<div class="pull-left">
+			<a class="menu-bar" data-toggle="collapse" href="#menu">
+				<span class="bars"></span>
+			</a>
+			<div class="collapse menu" id="menu">
+				<ul class="list-inline">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Works</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--<div class="h1 title">User</div> -->
+		<button class="button button-clear button-positive"><a href="index.html"> logout </a></button>
+	</div>
+
+	<div class="center-block" id="GetDown">
+		<div id="map"></div>
+
+		<script>
+			var map;
+			var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+			var event_markerLatLong;
+
+
+			var user1LatLong = {
+				lat: 26.026339
+				, lng: -80.321689
+			}
+			var user2LatLong = {
+				lat: 25.937041
+				, lng: -80.162589
+			}
+
+
+
+			var theUrl = 'http://www.miamibeachapi.com/rest/a.pi/events/search';
+			var consumerKey = "anonymous";
+			var consumerSecret = "anonymous";
+			var token = "98c4b6475d90528e2b8fce39ced022a94290d558";
+			var tokenSecret = "d18bf609d7c3ce5d2a0c221edde42a6decf23c3b";
+			var eventArray = new Array();
+			var eventTitleArray = new Array();
+
+			var accessor = {
+				consumerKey: consumerKey
+				, consumerSecret: consumerSecret
+				, token: token
+				, tokenSecret: tokenSecret
+			};
+
+			var message = {
+				method: "GET"
+				, action: theUrl
+				, parameters: {}
+			};
+
+
+
+			message.parameters = {};
+			message.parameters['rows'] = 35;
+			message.parameters['page'] = 1;
+			message.parameters['keyword'] = 'fun';
+			message.parameters['jsoncallback'] = '?';
+			message.parameters['oauth_timestamp'] = freshTimestamp();
+			message.parameters['oauth_nonce'] = freshNonce();
+
+			OAuth.completeRequest(message, accessor);
+			OAuth.SignatureMethod.sign(message, accessor);
+			var encodedParams = OAuth.formEncode(message.parameters);
+			var getURL = theUrl + '?' + encodedParams;
+
+			$.getJSON(getURL, function (data) {
+				var outHTML = "";
+				if (data.events) {
+
+					$.each(data.events, function (i, e) {
+						if (e.lat == undefined) {
+							return true;
+						}
+						eventArray.push("{lat:" + e.lat + ", lng:" + e.lng + "}");
+						eventTitleArray.push(e.name);
+						
+
+
+					});
+				}
+				
+				
+
+			});
+
+
+			function freshTimestamp() {
+				return OAuth.timestamp();
+			}
+
+			function freshNonce() {
+				return OAuth.nonce(11);
+			}
+
+
+			event_markerLatLong = eventArray[3];
+			console.log(eventArray[3]);
+
+
+			function initMap() {
+  
+				
+				
+				console.log(eventArray);
+				//event_markerLatLong = eventArray.pop();
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: {
+						lat: 25.911747
+						, lng: -80.139883
+					}
+					, zoom: 12
+				});
+
+				var user1_marker = new google.maps.Marker({
+					position: user1LatLong
+					, map: map
+					, title: 'You are Here'
+
+
+				});
+
+				var user2_marker = new google.maps.Marker({
+					position: user2LatLong
+					, map: map
+					, title: 'Needs a ride'
+
+					
+					, animation: google.maps.Animation.DROP
+
+				});
+
+				var event_marker = new google.maps.Marker({
+					position: {
+						lat: 25.79135
+						, lng: -80.13323
+					}
+					
+					, map: map
+					, title: 'Check this out'	
+					//, labelContent: eventTitleArray[3]
+					, icon: 'img/calendar.png'
+					, animation: google.maps.Animation.DROP
+
+				});
+				var event_marker2 = new google.maps.Marker({
+					position: {
+						lat: 25.85913
+						, lng: -80.12014
+					}
+					
+					, map: map
+					, title: 'Check this out'	
+					//, labelContent: eventTitleArray[3]
+					, icon: 'img/calendar.png'
+					, animation: google.maps.Animation.DROP
+
+				});
+					var event_marker3 = new google.maps.Marker({
+					position: {
+						lat: 25.78333
+						, lng: -80.13196
+					}
+					
+					, map: map
+					, title: 'Check this out'	
+					//, labelContent: eventTitleArray[3]
+					, icon: 'img/calendar.png'
+					, animation: google.maps.Animation.DROP
+
+				});
+
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzZ7gECjSSLqNO3xFDZT3nczedPvLBxqU&callback=initMap" async defer></script>
+
+
+	</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col col-50">
+				<div class="card">
+					<div class="item item-text-wrap">
+						<h3> Username : <span> User123 </h3>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<h4 id="distance_to"> User is x Miles Away </h4>
+				<h5><strong> This is <strong>$ 3 <strong></h5>
+				<button class="button button-positive">
+					Lift Now!
+				</button>
+			</div>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</body>
+
+</html>
+>>>>>>> origin/master
