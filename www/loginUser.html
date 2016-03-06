@@ -30,24 +30,33 @@
   </head>
   <body ng-app="starter">
 
-    <div class="bar bar-header bar-stable">
-        <h1 class="title">Juan<div class="NameUser"></div></h1>
+    <div class="bar bar-header">
+          <a href="DriverUser.html" class="pull-right"> 
+            <button class="button button-clear button-positive"><i class="icon ion-android-home"></i></button>
+          </a>
+          <a href="payment.html"> 
+            <button class="button button-clear button-positive"> <i class="icon ion-social-usd"></i> </button>
+          </a>
+
+          <div class="h1 title">User</div>
+          <div class="pull-left" id="pullit"><a href="index.html"> <button class="button button-clear button-positive">logout </button> </a></div>
+        </div>
+
+    <div class="container" id="GetDown">
+         <h1 style="text-align: center"> Look for a Partner </h1>
     </div>
-    <div class="container">
-         <h1> Look for a Partner </h1>
-
-         <div class="map"></div>
+    <div class="list">
+        <a class="item item-thumbnail-left" href="#">
+          <img src="https://laexuberanciadehades.files.wordpress.com/2013/03/alejandro-magno.jpg">
+          <h2>Alejandro Magno</h2>
+          <p>x Miles away from you <span> $4.00</p>
+        </a>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="http://static2.businessinsider.com/image/509802cb69bedd6209000009/nicolas-cage-will-be-in-the-expendables-3.jpg">
+          <h2>Nicolas Cage</h2>
+          <p>x Miles away from you <span> $5.00</p>
+        </a>
     </div>
-     
-     <script type="text/javascript"> 
-        var map = L.map('.map');
-
-        L.tileLayer('https://api.tiles.mapbox.com/v4/MapID/997/256/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-         maxZoom: 18
-        }).addTo(map);
-     </script>
-
     
   </body>
 </html>
